@@ -1,0 +1,32 @@
+def prime(n):
+    d = 2
+    while d * d <= n:
+        if n % d == 0:
+            return False
+        d += 1
+    return True
+
+
+def delit(n):
+    d = 2
+    a = []
+    while d * d < n:
+        if n % d == 0:
+            if prime(d):
+                a.append(d)
+            if prime(n // d):
+                a.append(d)
+        d += 1
+    if d * d == n:
+        if prime(d):
+            a.append(d)
+    if len(a) == 6:
+        return sum(a)
+    else:
+        return 0
+
+
+for i in range(779888, 783001):
+    res = delit(i)
+    if res != 0:
+        print(i, res)
