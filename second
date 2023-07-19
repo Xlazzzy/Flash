@@ -1,4 +1,4 @@
-def prime(n):
+def prime(n): #определение простого числа
     d = 2
     while d * d <= n:
         if n % d == 0:
@@ -12,7 +12,7 @@ def delit(n):
     a = []
     while d * d < n:
         if n % d == 0:
-            if prime(d):
+            if prime(d): #поиск и добавление в массив простых делителей
                 a.append(d)
             if prime(n // d):
                 a.append(d)
@@ -20,7 +20,7 @@ def delit(n):
     if d * d == n:
         if prime(d):
             a.append(d)
-    if len(a) == 6:
+    if len(a) == 6: #проверка условия
         return sum(a)
     else:
         return 0
