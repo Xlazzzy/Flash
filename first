@@ -2,21 +2,21 @@ def delit(n):
     d = 2
     a = []
     while d * d < n:
-        if n % d == 0:
+        if n % d == 0: #нахождение делителей
             a.append(n // d)
             a.append(d)
         d += 1
     if d * d == n:
         a.append(d)
     a.sort()
-    if len(a) == 7 and (a[0] + a[-1]) % 2 == 0:
+    if len(a) == 7 and (a[0] + a[-1]) % 2 == 0: #проверка условия
         return a[0] + a[-1]
     else:
         return 0
 
 
 for i in range(34700000, 35000001):
-    if i ** 0.5 == int(i ** 0.5):
+    if i ** 0.5 == int(i ** 0.5): #проверка числа является ли оно корнем, т.к нечетное кол-во делителей имеют только корни
         res = delit(i)
         if res != 0:
             print(i, res)
