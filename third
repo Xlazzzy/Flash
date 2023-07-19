@@ -1,0 +1,30 @@
+from fnmatch import *
+
+
+def delit(n):
+    d = 1
+    a = []
+    while d * d < n:
+        if n % d == 0: #нахождение делителей и проверка на четность
+            if d % 2 == 0:
+                a.append(d)
+            if (n // d) % 2 == 0:
+                a.append(n // d)
+        d += 1
+    if d * d == n:
+        if d % 2 == 0:
+            a.append(d)
+    if len(a) >= 6: #проверка условия 6 четных делителей
+        return sum(a)
+    else:
+        return 0
+
+
+k = 0
+for i in range(37000, 10**10):
+    s = str(i)
+    if fnmatch(s, '3*97*3?') and delit(i) != 0: #проверка соответствия маске и условию задачи
+        k += 1
+        print(i, delit(i))
+    if k == 6:
+        break
